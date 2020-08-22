@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/activity_newcontact__toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include layout="@layout/snippet_toolbar"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/activity_newcontact__toolbar">
+
+            <EditText
+                android:id="@+id/activity_newcontact__name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="40dp"
+                android:layout_centerHorizontal="true"
+                android:hint="Имя"/>
+
+            <EditText
+                android:id="@+id/activity_newcontact__last_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/activity_newcontact__name"
+                android:hint="Фамилия"/>
+
+            <EditText
+                android:id="@+id/activity_newcontact__phone"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/activity_newcontact__last_name"
+                android:hint="Телефон"/>
+
+            <EditText
+                android:id="@+id/activity_newcontact__email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/activity_newcontact__phone"
+                android:hint="email"/>
+
+            <Button
+                android:id="@+id/activity_newcontact__add_button"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:text="Добавить"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="60dp"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
