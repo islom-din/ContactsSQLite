@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     TextView activityName;
     ListView listViewOfContacts;
     FloatingActionButton fab;
+    TextView textView;
 
     // Database
     DBHelper dbHelper;
@@ -38,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
         activityName = findViewById(R.id.activity_name);
         listViewOfContacts = findViewById(R.id.main_activity__listview_of_contacts);
         fab = findViewById(R.id.main_activity__fab);
-        
+        textView = findViewById(R.id.main_activity__no_contacts_message);
+
         activityName.setText("Список контактов");
         fab.setOnClickListener(fabListiner);
 
@@ -66,9 +68,10 @@ public class MainActivity extends AppCompatActivity {
 
         if(!list.isEmpty()) {
             ContactsListAdapter adapter = new ContactsListAdapter(this, R.layout.adapter_view_layout, list);
+            textView.setVisibility(View.GONE);
             listViewOfContacts.setAdapter(adapter);
+
         } else {
-            TextView textView = findViewById(R.id.main_activity__no_contacts_message);
             textView.setVisibility(View.VISIBLE);
         }
     }
