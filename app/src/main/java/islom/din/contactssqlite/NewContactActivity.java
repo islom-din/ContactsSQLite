@@ -47,6 +47,12 @@ public class NewContactActivity extends AppCompatActivity {
         addButton.setOnClickListener(addButtonListiner);
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+
     View.OnClickListener addButtonListiner = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
