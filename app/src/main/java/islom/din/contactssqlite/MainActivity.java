@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -45,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(fabListiner);
 
         initListOfContacts();
+
+        listViewOfContacts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getApplicationContext(), ContactActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

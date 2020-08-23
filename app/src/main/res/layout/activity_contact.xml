@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/contact_activity__appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+            <include layout="@layout/contact_snippet_toolbar"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/contact_activity__contact_image"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/contact_activity__appbar"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/ic_person"/>
+
+        <TextView
+            android:id="@+id/contact_activity__contact_name_lastname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Islom Nuridinov"
+            android:textSize="25sp"
+            android:textColor="@color/colorAccent"
+            android:layout_below="@+id/contact_activity__contact_image"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/contact_activity__contact_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(+992) 900 20-16-53"
+            android:textSize="30sp"
+            android:textColor="@color/colorAccent"
+            android:layout_below="@+id/contact_activity__contact_name_lastname"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/contact_activity__contact_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="islom.din.nur@gmail.com"
+            android:textSize="20sp"
+            android:textColor="@color/colorAccent"
+            android:layout_below="@+id/contact_activity__contact_phone"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"/>
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:text="Позвонить"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="40dp"/>
+
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
