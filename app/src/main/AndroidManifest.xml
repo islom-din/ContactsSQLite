@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".NewContactActivity"></activity>
-        <activity android:name=".ContactActivity"></activity>
+        <activity android:name=".ContactActivity"
+            android:theme="@style/AppTheme.SliderActivityTheme"></activity>
     </application>
 
 </manifest>

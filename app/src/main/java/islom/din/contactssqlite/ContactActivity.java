@@ -15,14 +15,20 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.r0adkll.slidr.Slidr;
+import com.r0adkll.slidr.model.SlidrInterface;
+
 import islom.din.contactssqlite.db.DBHelper;
 import islom.din.contactssqlite.models.Contact;
 
 public class ContactActivity extends AppCompatActivity {
 
-    TextView contactNameLastName;
-    TextView contactPhone;
-    TextView contactEmail;
+    private TextView contactNameLastName;
+    private TextView contactPhone;
+    private TextView contactEmail;
+
+    private SlidrInterface slidr;
+
 
     DBHelper dbHelper;
     Contact contact;
@@ -48,9 +54,20 @@ public class ContactActivity extends AppCompatActivity {
 
         fillFields();
 
-
         dbHelper = new DBHelper(this);
+
+        slidr = Slidr.attach(this);
     }
+
+    public void lockSlide(View v) {
+        slidr.lock();
+    }
+
+    public void unlockSlide(View v) {
+        slidr.unlock();
+    }
+
+
 
     @SuppressLint("SetTextI18n")
     private void fillFields() {
