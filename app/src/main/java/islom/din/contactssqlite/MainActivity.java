@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     ListView listViewOfContacts;
     FloatingActionButton fab;
     TextView textView;
+    List<Contact> list;
 
     // Database
     DBHelper dbHelper;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         listViewOfContacts = findViewById(R.id.main_activity__listview_of_contacts);
         fab = findViewById(R.id.main_activity__fab);
         textView = findViewById(R.id.main_activity__no_contacts_message);
+        list = new ArrayList<>();
 
         activityName.setText("Список контактов");
         fab.setOnClickListener(fabListiner);
@@ -51,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), ContactActivity.class);
+                intent.putExtra("contact", list.get(position));
+                intent.putExtra("context", getApplicationInfo());
                 startActivity(intent);
             }
         });
@@ -59,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d(TAG, "onResume: ");
         initListOfContacts();
     }
 
@@ -71,18 +76,16 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void initListOfContacts() {
-        List<Contact> list = new ArrayList<>();
-
+        list.clear();
+        Log.d(TAG, "initListOfContacts: =======================================>");
         getDataFromDB(list);
 
-        if(!list.isEmpty()) {
-            ContactsListAdapter adapter = new ContactsListAdapter(this, R.layout.adapter_view_layout, list);
-            textView.setVisibility(View.GONE);
-            listViewOfContacts.setAdapter(adapter);
+        ContactsListAdapter adapter = new ContactsListAdapter(this, R.layout.adapter_view_layout, list);
+        textView.setVisibility(View.GONE);
+        listViewOfContacts.setAdapter(adapter);
 
-        } else {
+        if(list.isEmpty())
             textView.setVisibility(View.VISIBLE);
-        }
     }
 
     private void getDataFromDB(List<Contact> list) {

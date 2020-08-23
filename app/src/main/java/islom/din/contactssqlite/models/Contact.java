@@ -1,6 +1,11 @@
 package islom.din.contactssqlite.models;
 
-public class Contact {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class Contact implements Serializable {
     private String id;
     private String firstName;
     private String lastName;
@@ -54,4 +59,5 @@ public class Contact {
     public void setEmail(String email) {
         this.email = email;
     }
+
 }
