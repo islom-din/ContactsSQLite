@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class NewContactActivity extends AppCompatActivity {
     private EditText contactEmail;
     private Button addButton;
     private TextView activityName;
+    private ImageView backArrow;
 
     // DataBase
     private DBHelper dbHelper;
@@ -39,12 +41,14 @@ public class NewContactActivity extends AppCompatActivity {
         contactEmail = findViewById(R.id.activity_newcontact__email);
         addButton = findViewById(R.id.activity_newcontact__add_button);
         activityName = findViewById(R.id.activity_name);
+        backArrow = findViewById(R.id.newcontact_activity__backarrow);
 
         dbHelper = new DBHelper(this);
 
         activityName.setText("Новый контакт");
 
         addButton.setOnClickListener(addButtonListiner);
+        backArrow.setOnClickListener(backArrowListener);
     }
 
     @Override
@@ -72,6 +76,13 @@ public class NewContactActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(getApplicationContext(), "Заполните все поля!", Toast.LENGTH_LONG);
                 toast.show();
             }
+        }
+    };
+
+    View.OnClickListener backArrowListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            finish();
         }
     };
 
